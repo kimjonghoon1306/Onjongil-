@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>온종일 · 사장님의 온라인을 온종일 챙겨드립니다</title>
+<meta name="description" content="도매전산·쇼핑몰·홈페이지·랜딩페이지·디자인. 사장님의 비즈니스를 온종일 케어합니다.">
+
+<!-- 폰트 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400&family=Gaegu:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+
+<!-- 스타일 -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="night">
+
+<!-- ======================== NAV ======================== -->
+<nav class="nav">
+  <a href="#" class="logo">
+    <div class="logo-icon">
+      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" fill="var(--accent)"/>
+        <circle cx="14" cy="17" r="2" fill="var(--bg)"/>
+        <circle cx="26" cy="17" r="2" fill="var(--bg)"/>
+        <path d="M 13 24 Q 20 30 27 24" stroke="var(--bg)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="logo-text">온종일<span class="en">ONJONGIL</span></div>
+  </a>
+  <div class="nav-menu" id="navMenu">
+    <a href="#services">서비스</a>
+    <a href="#portfolio">포트폴리오</a>
+    <a href="#process">프로세스</a>
+    <a href="#contact">문의</a>
+    <div class="theme-toggle" id="themeToggle" title="낮/밤 전환">
+      <div class="theme-toggle-ball" id="themeBall">🌙</div>
+    </div>
+    <a href="#contact" class="nav-cta">문의하기 →</a>
+  </div>
+  <button class="mobile-toggle" id="mobileToggle">☰</button>
+</nav>
+
+<!-- ======================== HERO ======================== -->
+<section class="hero">
+  <div class="stars" id="stars"></div>
+  <div class="clouds" id="clouds"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        지금도 <span class="hand" style="font-size:16px">온종일</span> 일하는 중
+      </div>
+      <h1>사장님의 온라인을<br><span class="highlight">온종일</span> 챙겨드려요<em>.</em></h1>
+      <p class="hero-sub">도매전산 · 쇼핑몰 · 홈페이지 · 랜딩페이지 · 디자인까지.<br>밤낮 가리지 않고 사장님의 비즈니스를 지켜봅니다.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary"><span>무료 상담 신청</span><span class="btn-arrow">→</span></a>
+        <a href="#portfolio" class="btn btn-secondary"><span>포트폴리오 보기</span></a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num" data-target="120">0</div><div class="stat-label">제작 프로젝트</div></div>
+        <div class="stat"><div class="stat-num" data-target="98">0</div><div class="stat-label">고객 만족도 %</div></div>
+        <div class="stat"><div class="stat-num" data-target="24">0</div><div class="stat-label">시간 온종일 케어</div></div>
+      </div>
+    </div>
+
+    <!-- HERO 캐릭터 씬 -->
+    <div class="hero-scene">
+      <div class="floating-icon icon-1">💻</div>
+      <div class="floating-icon icon-2">🎨</div>
+      <div class="floating-icon icon-3">📱</div>
+      <div class="floating-icon icon-4">🛒</div>
+      <div class="floating-icon icon-5">⚡</div>
+      <div class="speech-bubble"><span class="hand" style="font-size:18px">제가 다 해드릴게요!</span></div>
+      <div class="monitor-glow"></div>
+      <div class="scene-shadow"></div>
+      <div class="character">
+        <!-- assets/character.svg 내용 인라인 포함 -->
+        <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg">
+          <!-- 의자 등받이 -->
+          <rect x="160" y="200" width="80" height="180" rx="12" fill="#2a3446"/>
+          <rect x="165" y="205" width="70" height="170" rx="8" fill="#3a4458"/>
+          <!-- 목 -->
+          <rect x="185" y="205" width="30" height="18" fill="#f4c4a0"/>
+          <path d="M 185 218 Q 200 225 215 218" fill="#e8b095"/>
+          <!-- 몸통 -->
+          <path d="M 125 320 Q 125 245 175 225 L 225 225 Q 275 245 275 320 Z" fill="#4a5a7c"/>
+          <path d="M 180 225 L 200 245 L 220 225 L 215 235 L 200 250 L 185 235 Z" fill="#2a3446"/>
+          <line x1="200" y1="250" x2="200" y2="320" stroke="#2a3446" stroke-width="1.5" opacity="0.5"/>
+          <!-- 머리 -->
+          <ellipse cx="200" cy="175" rx="46" ry="52" fill="#f4c4a0"/>
+          <ellipse cx="156" cy="180" rx="5" ry="9" fill="#e8b095"/>
+          <ellipse cx="244" cy="180" rx="5" ry="9" fill="#e8b095"/>
+          <ellipse cx="156" cy="180" rx="2" ry="5" fill="#c89878"/>
+          <ellipse cx="244" cy="180" rx="2" ry="5" fill="#c89878"/>
+          <!-- 머리카락 -->
+          <path d="M 154 165 Q 150 125 200 115 Q 250 125 246 170 L 248 180 Q 244 160 236 155 Q 220 165 200 160 Q 180 165 164 155 Q 156 160 152 180 Z" fill="#1a0f08"/>
+          <path d="M 158 155 Q 155 118 200 110 Q 215 112 220 125 Q 210 138 195 140 Q 180 142 170 148 Q 162 152 158 155 Z" fill="#2a1810"/>
+          <path d="M 220 125 Q 228 115 242 125 Q 248 140 245 162 Q 240 152 230 148 Q 222 140 220 125 Z" fill="#1a0f08"/>
+          <path d="M 218 124 Q 215 135 212 145" stroke="#c89878" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.3"/>
+          <path d="M 170 148 Q 178 158 190 155 Q 200 152 208 155" stroke="#2a1810" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 180 128 Q 195 122 210 128" stroke="#3a2818" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+          <ellipse cx="195" cy="125" rx="12" ry="3" fill="#4a3420" opacity="0.4"/>
+          <!-- 눈썹 -->
+          <path d="M 170 162 Q 180 158 190 163" stroke="#1a0f08" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M 210 163 Q 220 158 230 162" stroke="#1a0f08" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- 안경 -->
+          <circle cx="182" cy="178" r="14" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+          <circle cx="218" cy="178" r="14" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+          <line x1="196" y1="178" x2="204" y2="178" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="168" y1="178" x2="158" y2="180" stroke="#1a1a1a" stroke-width="2"/>
+          <line x1="232" y1="178" x2="242" y2="180" stroke="#1a1a1a" stroke-width="2"/>
+          <circle cx="182" cy="178" r="12" fill="#7ab8ff" opacity="0.25"><animate attributeName="opacity" values="0.15;0.35;0.15" dur="2s" repeatCount="indefinite"/></circle>
+          <circle cx="218" cy="178" r="12" fill="#7ab8ff" opacity="0.25"><animate attributeName="opacity" values="0.15;0.35;0.15" dur="2s" begin="0.5s" repeatCount="indefinite"/></circle>
+          <!-- 눈 -->
+          <ellipse cx="182" cy="178" rx="3" ry="2.8" fill="#1a1a1a"><animate attributeName="ry" values="2.8;0.3;2.8" dur="4s" repeatCount="indefinite"/></ellipse>
+          <ellipse cx="218" cy="178" rx="3" ry="2.8" fill="#1a1a1a"><animate attributeName="ry" values="2.8;0.3;2.8" dur="4s" repeatCount="indefinite"/></ellipse>
+          <circle cx="183" cy="177" r="0.8" fill="#fff"/>
+          <circle cx="219" cy="177" r="0.8" fill="#fff"/>
+          <!-- 코 -->
+          <path d="M 200 188 Q 197 198 200 204 Q 203 202 204 200" fill="none" stroke="#c89878" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- 입 -->
+          <path d="M 192 213 Q 200 214 208 213" stroke="#8b5a3c" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- 턱선 -->
+          <path d="M 162 200 Q 165 215 175 220" stroke="#e8b095" stroke-width="1" fill="none" opacity="0.5"/>
+          <path d="M 238 200 Q 235 215 225 220" stroke="#e8b095" stroke-width="1" fill="none" opacity="0.5"/>
+          <!-- 책상 -->
+          <path d="M 0 330 L 400 330 L 400 360 L 0 360 Z" fill="#8B5A3C"/>
+          <path d="M 0 330 L 400 330 L 395 335 L 5 335 Z" fill="#6B4226"/>
+          <rect x="30" y="360" width="10" height="80" fill="#5a3520"/>
+          <rect x="360" y="360" width="10" height="80" fill="#5a3520"/>
+          <rect x="0" y="358" width="400" height="4" fill="#000" opacity="0.2"/>
+          <!-- 노트북 -->
+          <g transform="translate(140, 290)">
+            <path d="M 5 0 L 115 0 L 125 -5 L 115 -60 L 5 -60 L -5 -5 Z" fill="#1a2035"/>
+            <path d="M 8 -3 L 112 -3 L 112 -57 L 8 -57 Z" fill="#0d1220"/>
+            <g>
+              <rect x="14" y="-52" width="35" height="2.5" rx="1" fill="#ffd27a"><animate attributeName="width" values="35;55;25;45;35" dur="3s" repeatCount="indefinite"/></rect>
+              <rect x="14" y="-46" width="50" height="2.5" rx="1" fill="#ff8a5c"><animate attributeName="width" values="50;30;65;40;50" dur="3.5s" repeatCount="indefinite"/></rect>
+              <rect x="19" y="-40" width="28" height="2.5" rx="1" fill="#7ab8ff"><animate attributeName="width" values="28;48;20;38;28" dur="2.8s" repeatCount="indefinite"/></rect>
+              <rect x="19" y="-34" width="58" height="2.5" rx="1" fill="#ffd27a"><animate attributeName="width" values="58;38;70;48;58" dur="3.2s" repeatCount="indefinite"/></rect>
+              <rect x="14" y="-28" width="38" height="2.5" rx="1" fill="#ff8a5c"><animate attributeName="width" values="38;58;28;48;38" dur="2.6s" repeatCount="indefinite"/></rect>
+              <rect x="14" y="-22" width="45" height="2.5" rx="1" fill="#7ab8ff"><animate attributeName="width" values="45;25;60;35;45" dur="3.4s" repeatCount="indefinite"/></rect>
+              <rect x="62" y="-22" width="1.5" height="6" fill="#fff"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/></rect>
+            </g>
+            <rect x="-6" y="-3" width="132" height="4" rx="1" fill="#2a3446"/>
+            <path d="M -5 1 L 125 1 L 135 35 L -15 35 Z" fill="#2a3446"/>
+            <g fill="#1a2035">
+              <rect x="5" y="8" width="110" height="2"/>
+              <rect x="5" y="14" width="110" height="2"/>
+              <rect x="5" y="20" width="110" height="2"/>
+              <rect x="30" y="26" width="60" height="4" rx="1"/>
+            </g>
+            <circle cx="60" cy="31" r="1.5" fill="#888" opacity="0.7"/>
+            <rect x="40" y="30" width="40" height="3" rx="1" fill="#1a2035" opacity="0.6"/>
+          </g>
+          <!-- 태블릿 -->
+          <g transform="translate(295, 292)">
+            <rect x="0" y="0" width="55" height="40" rx="3" fill="#1a1a1a" transform="rotate(-8)"/>
+            <rect x="2" y="2" width="51" height="36" rx="2" fill="#3fa9f5" transform="rotate(-8)"/>
+            <g transform="rotate(-8)">
+              <rect x="4" y="4" width="47" height="4" fill="#1a2035" opacity="0.5"/>
+              <circle cx="8" cy="14" r="2" fill="#ec4899"/>
+              <circle cx="14" cy="14" r="2" fill="#ffd27a"/>
+              <circle cx="20" cy="14" r="2" fill="#059669"/>
+              <circle cx="26" cy="14" r="2" fill="#7ab8ff"/>
+              <rect x="5" y="19" width="45" height="16" fill="#fff" opacity="0.9"/>
+              <rect x="8" y="22" width="15" height="3" fill="#1a2035"><animate attributeName="width" values="15;20;10;15" dur="3s" repeatCount="indefinite"/></rect>
+              <rect x="8" y="27" width="25" height="2" fill="#c0c0c0"/>
+              <rect x="8" y="31" width="18" height="2" fill="#c0c0c0"/>
+              <circle cx="42" cy="27" r="3" fill="#ffd27a"/>
+            </g>
+            <g transform="rotate(30 60 20)">
+              <rect x="38" y="15" width="25" height="3" rx="1.5" fill="#f0f0f0"/>
+              <polygon points="63,16.5 67,16.5 65,18.5" fill="#1a1a1a"/>
+            </g>
+          </g>
+          <!-- 팔 -->
+          <path d="M 140 280 Q 125 295 145 315 L 165 320 Q 155 300 160 280 Z" fill="#4a5a7c"/>
+          <path d="M 260 280 Q 275 295 255 315 L 235 320 Q 245 300 240 280 Z" fill="#4a5a7c"/>
+          <ellipse cx="160" cy="320" rx="12" ry="8" fill="#f4c4a0"><animate attributeName="cy" values="320;317;320" dur="0.6s" repeatCount="indefinite"/></ellipse>
+          <ellipse cx="240" cy="320" rx="12" ry="8" fill="#f4c4a0"><animate attributeName="cy" values="320;317;320" dur="0.6s" begin="0.3s" repeatCount="indefinite"/></ellipse>
+          <rect x="150" y="315" width="20" height="3" fill="#2a3446"/>
+          <rect x="230" y="315" width="20" height="3" fill="#2a3446"/>
+          <!-- 커피잔 -->
+          <g transform="translate(55, 305)">
+            <ellipse cx="16" cy="30" rx="22" ry="4" fill="#c8a88a" opacity="0.9"/>
+            <path d="M 2 5 L 30 5 L 27 28 L 5 28 Z" fill="#fff" stroke="#d4d4d4" stroke-width="1"/>
+            <path d="M 30 8 Q 40 8 40 17 Q 40 26 30 26" fill="none" stroke="#d4d4d4" stroke-width="2"/>
+            <ellipse cx="16" cy="7" rx="13" ry="3" fill="#6B4226"/>
+            <ellipse cx="14" cy="6.5" rx="4" ry="1" fill="#8b5a3c" opacity="0.6"/>
+            <g opacity="0.6">
+              <circle cx="8" cy="-2" r="2.5" fill="#fff"><animate attributeName="cy" values="0;-25;0" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="2.2s" repeatCount="indefinite"/><animate attributeName="cx" values="8;12;8" dur="2.2s" repeatCount="indefinite"/></circle>
+              <circle cx="16" cy="-5" r="2.5" fill="#fff"><animate attributeName="cy" values="-3;-30;-3" dur="2.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="2.7s" repeatCount="indefinite"/><animate attributeName="cx" values="16;20;16" dur="2.7s" repeatCount="indefinite"/></circle>
+              <circle cx="22" cy="-2" r="2" fill="#fff"><animate attributeName="cy" values="0;-26;0" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="2.4s" repeatCount="indefinite"/></circle>
+            </g>
+          </g>
+          <!-- 포스트잇 -->
+          <g transform="translate(40, 340) rotate(-5)">
+            <rect x="0" y="0" width="30" height="30" fill="#fbbf24" opacity="0.9"/>
+            <line x1="4" y1="8" x2="25" y2="8" stroke="#92400e" stroke-width="1" opacity="0.7"/>
+            <line x1="4" y1="14" x2="22" y2="14" stroke="#92400e" stroke-width="1" opacity="0.7"/>
+            <line x1="4" y1="20" x2="26" y2="20" stroke="#92400e" stroke-width="1" opacity="0.7"/>
+          </g>
+          <!-- 그림자 -->
+          <ellipse cx="200" cy="332" rx="80" ry="4" fill="#000" opacity="0.2"/>
+          <ellipse cx="320" cy="332" rx="30" ry="3" fill="#000" opacity="0.2"/>
+          <ellipse cx="75" cy="334" rx="25" ry="3" fill="#000" opacity="0.2"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== SERVICES ======================== -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Services</div>
+      <h2>사장님께 필요한<br><em>모든 것</em>을 한 곳에서</h2>
+      <p>각각 다른 업체 찾아다닐 필요 없어요. 기획부터 제작, 운영까지 온종일에서 다 해결하세요.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <h3>도매전산 시스템</h3>
+        <p>재고·거래처·매출까지 한눈에. 사장님 업종에 꼭 맞춘 맞춤 ERP를 제작합니다.</p>
+        <div class="service-tags"><span class="service-tag">재고관리</span><span class="service-tag">거래명세서</span><span class="service-tag">매출분석</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🛒</div>
+        <h3>쇼핑몰 제작</h3>
+        <p>카페24·스마트스토어·자사몰 뭐든 OK. 잘 팔리는 구조로 설계해드려요.</p>
+        <div class="service-tags"><span class="service-tag">반응형</span><span class="service-tag">결제연동</span><span class="service-tag">SEO</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🏠</div>
+        <h3>홈페이지 제작</h3>
+        <p>회사 얼굴이 될 홈페이지. 신뢰감 주는 디자인으로 고객 문의를 늘려드려요.</p>
+        <div class="service-tags"><span class="service-tag">반응형</span><span class="service-tag">관리자</span><span class="service-tag">유지보수</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🚀</div>
+        <h3>랜딩페이지</h3>
+        <p>광고로 들어온 고객이 구매까지 가도록. 전환율에 집중한 페이지를 만듭니다.</p>
+        <div class="service-tags"><span class="service-tag">전환최적화</span><span class="service-tag">A/B테스트</span><span class="service-tag">광고연동</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🎨</div>
+        <h3>디자인 작업</h3>
+        <p>상세페이지·배너·로고·브랜딩. 사장님 브랜드에 감성을 입혀드립니다.</p>
+        <div class="service-tags"><span class="service-tag">상세페이지</span><span class="service-tag">로고</span><span class="service-tag">브랜딩</span></div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🤖</div>
+        <h3>AI 자동화</h3>
+        <p>반복 작업은 AI에게. 상품 설명, 이미지 생성, 고객 응대까지 자동화합니다.</p>
+        <div class="service-tags"><span class="service-tag">AI상세페이지</span><span class="service-tag">챗봇</span><span class="service-tag">자동화</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== PORTFOLIO ======================== -->
+<section id="portfolio" style="background:var(--bg-soft)">
+  <div class="section-inner">
+    <div class="portfolio-head reveal">
+      <div class="section-head">
+        <div class="section-eyebrow">Portfolio</div>
+        <h2>직접 만든 <em>작품들</em></h2>
+        <p>사장님들과 함께 완성한 프로젝트입니다. 클릭해서 자세히 보세요.</p>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="portfolio-admin-toggle" id="pwChangeBtn" style="display:none" title="비밀번호 변경">
+          <span>🔑</span><span>비밀번호 변경</span>
+        </button>
+        <button class="portfolio-admin-toggle" id="adminToggle">
+          <span id="adminIcon">🔒</span>
+          <span id="adminText">관리자 모드</span>
+        </button>
+      </div>
+    </div>
+    <div class="portfolio-grid" id="portfolioGrid"></div>
+  </div>
+</section>
+
+<!-- ======================== PROCESS ======================== -->
+<section id="process" class="process">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">Process</div>
+      <h2><em>쉽고 빠르게</em> 시작하세요</h2>
+      <p>복잡한 절차 없이 4단계면 끝. 사장님은 아이디어만 주세요, 나머지는 온종일이.</p>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step reveal"><div class="process-num">1</div><h3>무료 상담</h3><p>이메일로 편하게 문의주세요. 24시간 내 답변드려요.</p></div>
+      <div class="process-step reveal"><div class="process-num">2</div><h3>견적 · 기획</h3><p>업종에 맞는 최적의 방향을 함께 설계합니다.</p></div>
+      <div class="process-step reveal"><div class="process-num">3</div><h3>제작 · 디자인</h3><p>실시간 공유하면서 만족할 때까지 다듬어요.</p></div>
+      <div class="process-step reveal"><div class="process-num">4</div><h3>오픈 · 유지</h3><p>오픈 후에도 온종일이 계속 챙겨드립니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== WORKERS ======================== -->
+<section class="workers-section">
+  <div class="section-inner" style="text-align:center;margin-bottom:40px">
+    <div class="section-eyebrow reveal">Our Team</div>
+    <h2 class="reveal" style="font-size:clamp(28px,3.5vw,42px);font-weight:900;letter-spacing:-1.5px;margin-bottom:10px">밤낮없이 <em style="font-family:'Fraunces',serif;font-style:italic;color:var(--accent)">온종일</em> 일합니다</h2>
+    <p class="reveal" style="color:var(--text-muted);font-size:16px">사장님 일이 곧 저희 일이에요</p>
+  </div>
+  <div class="workers-scene">
+    <!-- Worker 1: 디자이너 -->
+    <svg class="worker worker-1" viewBox="0 0 130 170" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="65" cy="165" rx="40" ry="4" fill="rgba(0,0,0,0.2)"/>
+      <rect x="35" y="110" width="60" height="50" rx="8" fill="#ec4899"/>
+      <rect x="45" y="115" width="40" height="35" rx="4" fill="#fff" opacity="0.3"/>
+      <circle cx="65" cy="75" r="28" fill="#f4c4a0"/>
+      <path d="M 37 70 Q 37 45 65 45 Q 93 45 93 70 Q 93 65 80 62 Q 72 68 65 63 Q 58 68 50 62 Q 37 65 37 70" fill="#8b4513"/>
+      <circle cx="55" cy="78" r="2" fill="#1a1a1a"><animate attributeName="ry" values="2;0.2;2" dur="3s" repeatCount="indefinite"/></circle>
+      <circle cx="75" cy="78" r="2" fill="#1a1a1a"><animate attributeName="ry" values="2;0.2;2" dur="3s" repeatCount="indefinite"/></circle>
+      <path d="M 58 90 Q 65 93 72 90" stroke="#8b5a3c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <g transform="translate(100, 130)"><animateTransform attributeName="transform" type="rotate" values="0 100 130;-20 100 130;0 100 130" dur="1.5s" additive="sum" repeatCount="indefinite"/>
+        <rect x="0" y="0" width="3" height="25" fill="#8b5a3c"/>
+        <rect x="-2" y="25" width="7" height="5" fill="#ec4899"/>
+      </g>
+    </svg>
+    <!-- Worker 2: 개발자 -->
+    <svg class="worker worker-2" viewBox="0 0 130 170" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="65" cy="165" rx="40" ry="4" fill="rgba(0,0,0,0.2)"/>
+      <rect x="35" y="110" width="60" height="50" rx="8" fill="#3b82f6"/>
+      <rect x="40" y="125" width="50" height="30" rx="3" fill="#1a2035"/>
+      <rect x="43" y="128" width="44" height="24" rx="2" fill="#0d1220"/>
+      <rect x="46" y="132" width="15" height="2" fill="#7ab8ff"><animate attributeName="width" values="15;25;10;20;15" dur="2s" repeatCount="indefinite"/></rect>
+      <rect x="46" y="137" width="22" height="2" fill="#ffd27a"><animate attributeName="width" values="22;12;30;18;22" dur="2.3s" repeatCount="indefinite"/></rect>
+      <rect x="46" y="142" width="18" height="2" fill="#ff8a5c"><animate attributeName="width" values="18;28;13;22;18" dur="1.8s" repeatCount="indefinite"/></rect>
+      <rect x="46" y="147" width="25" height="2" fill="#7ab8ff"><animate attributeName="width" values="25;15;32;20;25" dur="2.5s" repeatCount="indefinite"/></rect>
+      <circle cx="65" cy="75" r="28" fill="#e8b095"/>
+      <path d="M 37 68 Q 37 42 65 42 Q 93 42 93 68 Q 90 55 70 52 Q 55 58 40 54 Q 37 60 37 68" fill="#1a1a1a"/>
+      <circle cx="55" cy="78" r="7" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <circle cx="75" cy="78" r="7" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+      <line x1="62" y1="78" x2="68" y2="78" stroke="#1a1a1a" stroke-width="1.5"/>
+      <circle cx="55" cy="78" r="6" fill="#7ab8ff" opacity="0.3"/>
+      <circle cx="75" cy="78" r="6" fill="#7ab8ff" opacity="0.3"/>
+      <path d="M 58 92 Q 65 94 72 92" stroke="#8b5a3c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <!-- Worker 3: 기획자 -->
+    <svg class="worker worker-3" viewBox="0 0 130 170" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="65" cy="165" rx="40" ry="4" fill="rgba(0,0,0,0.2)"/>
+      <rect x="35" y="110" width="60" height="50" rx="8" fill="#059669"/>
+      <g transform="translate(45, 115)"><animateTransform attributeName="transform" type="rotate" values="0 65 140;3 65 140;0 65 140" dur="2s" additive="sum" repeatCount="indefinite"/>
+        <rect x="0" y="0" width="35" height="40" rx="2" fill="#fff"/>
+        <rect x="10" y="-3" width="15" height="6" rx="2" fill="#888"/>
+        <line x1="5" y1="10" x2="30" y2="10" stroke="#ccc" stroke-width="1"/>
+        <line x1="5" y1="15" x2="28" y2="15" stroke="#ccc" stroke-width="1"/>
+        <line x1="5" y1="20" x2="30" y2="20" stroke="#ccc" stroke-width="1"/>
+        <line x1="5" y1="25" x2="25" y2="25" stroke="#ccc" stroke-width="1"/>
+        <path d="M 5 30 L 10 35 L 18 28" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round"><animate attributeName="stroke-dasharray" values="0 20;20 0" dur="1.5s" repeatCount="indefinite"/></path>
+      </g>
+      <circle cx="65" cy="75" r="28" fill="#f4c4a0"/>
+      <path d="M 37 70 Q 37 42 65 42 Q 93 42 93 70 L 95 100 Q 90 95 93 70 Q 85 60 65 58 Q 45 60 37 70 Q 40 95 35 100 Z" fill="#2a1a0d"/>
+      <circle cx="55" cy="78" r="2" fill="#1a1a1a"><animate attributeName="ry" values="2;0.2;2" dur="3.5s" repeatCount="indefinite"/></circle>
+      <circle cx="75" cy="78" r="2" fill="#1a1a1a"><animate attributeName="ry" values="2;0.2;2" dur="3.5s" repeatCount="indefinite"/></circle>
+      <path d="M 58 90 Q 65 94 72 90" stroke="#c44" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <!-- Worker 4: 마케터 -->
+    <svg class="worker worker-4" viewBox="0 0 130 170" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="65" cy="165" rx="40" ry="4" fill="rgba(0,0,0,0.2)"/>
+      <rect x="35" y="110" width="60" height="50" rx="8" fill="#f59e0b"/>
+      <g transform="translate(50, 120)"><animateTransform attributeName="transform" type="translate" values="50 120;50 115;50 120" dur="1.5s" repeatCount="indefinite"/>
+        <rect x="0" y="0" width="30" height="42" rx="5" fill="#1a1a1a"/>
+        <rect x="3" y="5" width="24" height="32" rx="2" fill="#3fa9f5"/>
+        <rect x="6" y="28" width="3" height="6" fill="#fff"><animate attributeName="height" values="6;10;4;8;6" dur="2s" repeatCount="indefinite"/><animate attributeName="y" values="28;24;30;26;28" dur="2s" repeatCount="indefinite"/></rect>
+        <rect x="11" y="25" width="3" height="9" fill="#fff"><animate attributeName="height" values="9;5;12;7;9" dur="2.2s" repeatCount="indefinite"/><animate attributeName="y" values="25;29;22;27;25" dur="2.2s" repeatCount="indefinite"/></rect>
+        <rect x="16" y="22" width="3" height="12" fill="#fff"><animate attributeName="height" values="12;8;15;10;12" dur="1.8s" repeatCount="indefinite"/><animate attributeName="y" values="22;26;19;24;22" dur="1.8s" repeatCount="indefinite"/></rect>
+        <rect x="21" y="18" width="3" height="16" fill="#ffd27a"><animate attributeName="height" values="16;12;20;14;16" dur="2.4s" repeatCount="indefinite"/><animate attributeName="y" values="18;22;14;20;18" dur="2.4s" repeatCount="indefinite"/></rect>
+      </g>
+      <circle cx="65" cy="75" r="28" fill="#e8b095"/>
+      <path d="M 37 68 Q 37 42 65 42 Q 93 42 93 68 Q 80 55 65 52 Q 50 55 37 68" fill="#d4a574"/>
+      <circle cx="55" cy="78" r="2.5" fill="#1a1a1a"><animate attributeName="ry" values="2.5;0.3;2.5" dur="4s" repeatCount="indefinite"/></circle>
+      <circle cx="75" cy="78" r="2.5" fill="#1a1a1a"><animate attributeName="ry" values="2.5;0.3;2.5" dur="4s" repeatCount="indefinite"/></circle>
+      <path d="M 56 90 Q 65 95 74 90" stroke="#8b5a3c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    </svg>
+    <!-- Worker 5: CEO -->
+    <svg class="worker worker-5" viewBox="0 0 130 170" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="65" cy="165" rx="40" ry="4" fill="rgba(0,0,0,0.2)"/>
+      <rect x="35" y="110" width="60" height="50" rx="8" fill="#6366f1"/>
+      <path d="M 60 110 L 70 110 L 68 130 L 65 140 L 62 130 Z" fill="#ff8a5c"/>
+      <circle cx="65" cy="75" r="28" fill="#f4c4a0"/>
+      <path d="M 40 68 Q 40 45 65 45 Q 90 45 90 68 Q 85 62 70 60 Q 60 62 45 60 Q 40 62 40 68" fill="#3a2418"/>
+      <circle cx="55" cy="78" r="2" fill="#1a1a1a"><animate attributeName="ry" values="2;0.2;2" dur="3.2s" repeatCount="indefinite"/></circle>
+      <circle cx="75" cy="78" r="2" fill="#1a1a1a"><animate attributeName="ry" values="2;0.2;2" dur="3.2s" repeatCount="indefinite"/></circle>
+      <path d="M 56 90 Q 65 94 74 90" stroke="#8b5a3c" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <g transform="translate(100, 40)">
+        <circle cx="0" cy="0" r="10" fill="#ffd27a" opacity="0.3"><animate attributeName="r" values="10;14;10" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/></circle>
+        <text x="0" y="5" text-anchor="middle" font-size="18">💡</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ======================== CONTACT ======================== -->
+<section id="contact" class="contact">
+  <div class="section-inner contact-wrap">
+    <div class="section-head reveal" style="margin-bottom:0">
+      <div class="section-eyebrow">Contact</div>
+      <h2>지금 <em>무료 상담</em> 받아보세요</h2>
+      <p>간단한 아이디어만 있어도 괜찮아요. 메일 주시면 24시간 안에 답변드려요.</p>
+    </div>
+    <a href="mailto:tarry9653@daum.net?subject=[온종일] 제작 문의&body=안녕하세요, 온종일에 제작 문의드립니다.%0D%0A%0D%0A▸ 업종:%0D%0A▸ 필요한 서비스 (쇼핑몰/홈페이지/랜딩페이지 등):%0D%0A▸ 예산:%0D%0A▸ 원하시는 일정:%0D%0A▸ 기타 요청사항:%0D%0A" class="contact-email reveal">
+      <span class="env">✉️</span>
+      <span>tarry9653@daum.net</span>
+    </a>
+    <div class="contact-channels reveal">
+      <a href="mailto:tarry9653@daum.net" class="channel">📧 이메일</a>
+      <a href="#" class="channel" onclick="alert('카카오톡 채널은 준비 중이에요! 메일로 연락주세요 😊');return false">💬 카카오톡 (준비중)</a>
+      <a href="#" class="channel" onclick="alert('전화 상담은 준비 중이에요! 메일로 먼저 연락주세요 😊');return false">📞 전화 (준비중)</a>
+    </div>
+    <p style="margin-top:40px;color:var(--text-dim);font-size:14px">
+      <span class="hand" style="font-size:18px;color:var(--accent)">"밤에 보내셔도 괜찮아요.</span>
+      <span class="hand" style="font-size:18px;color:var(--accent)">저희는 온종일 깨어있거든요 :)"</span>
+    </p>
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  <div class="foot-logo">온종일 <span style="font-family:'Fraunces',serif;font-style:italic;color:var(--accent);font-weight:400">· OnJongIl</span></div>
+  <p>도매전산 · 쇼핑몰 · 홈페이지 · 랜딩페이지 · 디자인</p>
+  <p style="margin-top:6px">© 2026 OnJongIl Studio. All rights reserved.</p>
+  <p style="margin-top:6px">📧 tarry9653@daum.net</p>
+</footer>
+
+<!-- 플로팅 CTA -->
+<a href="#contact" class="floating-cta"><span>💬</span><span>문의하기</span></a>
+
+<!-- ======================== MODALS ======================== -->
+
+<!-- 비번 입력 모달 -->
+<div class="modal-overlay" id="pwModal">
+  <div class="modal" style="max-width:400px">
+    <h3>🔒 관리자 인증</h3>
+    <div class="form-group">
+      <label>비밀번호</label>
+      <input type="password" id="pwInput" placeholder="비밀번호 입력" onkeydown="if(event.key==='Enter')checkPassword()">
+      <div class="hint" id="pwError" style="color:#ff4757;display:none;margin-top:8px">비밀번호가 일치하지 않습니다.</div>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn btn-secondary" onclick="closePwModal()">취소</button>
+      <button class="btn btn-primary" onclick="checkPassword()"><span>확인</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- 비번 변경 모달 -->
+<div class="modal-overlay" id="pwChangeModal">
+  <div class="modal" style="max-width:420px">
+    <h3>🔑 비밀번호 변경</h3>
+    <div class="form-group">
+      <label>현재 비밀번호</label>
+      <input type="password" id="pwCurrent" placeholder="현재 비밀번호">
+    </div>
+    <div class="form-group">
+      <label>새 비밀번호</label>
+      <input type="password" id="pwNew" placeholder="새 비밀번호 (4자 이상)">
+    </div>
+    <div class="form-group">
+      <label>새 비밀번호 확인</label>
+      <input type="password" id="pwConfirm" placeholder="새 비밀번호 다시 입력" onkeydown="if(event.key==='Enter')changePassword()">
+      <div class="hint" id="pwChangeError" style="color:#ff4757;display:none;margin-top:8px"></div>
+      <div class="hint" id="pwChangeSuccess" style="color:#10b981;display:none;margin-top:8px">비밀번호가 변경되었습니다.</div>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn btn-secondary" onclick="closePwChangeModal()">취소</button>
+      <button class="btn btn-primary" onclick="changePassword()"><span>변경</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- 포트폴리오 추가/수정 모달 -->
+<div class="modal-overlay" id="pfModal">
+  <div class="modal">
+    <h3 id="pfModalTitle">포트폴리오 추가</h3>
+    <div class="form-group">
+      <label>제목 *</label>
+      <input type="text" id="pfTitle" placeholder="예: 영광 굴비가게 쇼핑몰">
+    </div>
+    <div class="form-group">
+      <label>카테고리 *</label>
+      <select id="pfCategory">
+        <option value="쇼핑몰">쇼핑몰</option>
+        <option value="홈페이지">홈페이지</option>
+        <option value="랜딩페이지">랜딩페이지</option>
+        <option value="도매전산">도매전산</option>
+        <option value="디자인">디자인</option>
+        <option value="앱">앱</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>설명 *</label>
+      <textarea id="pfDesc" placeholder="프로젝트에 대한 짧은 설명"></textarea>
+    </div>
+    <div class="form-group">
+      <label>이미지 URL (선택)</label>
+      <input type="text" id="pfImg" placeholder="https://... (비우면 이모지 자동 표시)">
+      <div class="hint">💡 이미지 없으면 아래 이모지로 자동 대체돼요</div>
+    </div>
+    <div class="form-group">
+      <label>대표 이모지 (이미지 없을 때 사용)</label>
+      <input type="text" id="pfEmoji" placeholder="🐟" maxlength="2">
+    </div>
+    <div class="form-group">
+      <label>배경 그라데이션 색상 (이미지 없을 때)</label>
+      <select id="pfBg">
+        <option value="linear-gradient(135deg,#ec4899,#f43f5e)">핑크 그라데이션</option>
+        <option value="linear-gradient(135deg,#3b82f6,#6366f1)">블루 그라데이션</option>
+        <option value="linear-gradient(135deg,#059669,#0f766e)">그린 그라데이션</option>
+        <option value="linear-gradient(135deg,#f59e0b,#f97316)">오렌지 그라데이션</option>
+        <option value="linear-gradient(135deg,#8b5cf6,#6366f1)">퍼플 그라데이션</option>
+        <option value="linear-gradient(135deg,#ef4444,#dc2626)">레드 그라데이션</option>
+        <option value="linear-gradient(135deg,#0ea5e9,#0284c7)">스카이 그라데이션</option>
+        <option value="linear-gradient(135deg,#1a2035,#2a3446)">다크 그라데이션</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>링크 URL (선택)</label>
+      <input type="text" id="pfLink" placeholder="https://...">
+    </div>
+    <div class="modal-buttons">
+      <button class="btn btn-secondary" onclick="closePfModal()">취소</button>
+      <button class="btn btn-primary" onclick="savePortfolio()"><span>저장</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== JS (로드 순서 중요) ======================== -->
+<script src="js/portfolio.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
