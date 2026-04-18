@@ -25,9 +25,13 @@ async function loadPortfolio(){
   const { data, error } = await supabase
     .from('portfolios')
     .select('*')
-    .order('sort_order', { ascending: true })
     .order('id', { ascending: true });
-  if(error){ console.error(error); return []; }
+  if(error){
+    console.error(error);
+    const grid = document.getElementById('portfolioGrid');
+    if(grid) grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:40px;color:#ef4444">데이터 로딩 실패: ${error.message}</div>`;
+    return [];
+  }
   return data.map(p => ({
     id: p.id,
     title: p.title,
