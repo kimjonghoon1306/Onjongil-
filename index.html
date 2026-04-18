@@ -520,22 +520,20 @@
     <!-- 패널 A: URL 자동 추출 -->
     <div id="panelAuto">
       <div class="form-group">
-        <label>사이트 URL</label>
-        <div style="display:flex;gap:8px">
-          <input type="text" id="pfLink" placeholder="https://example.com" oninput="onLinkInput()" style="flex:1">
-          <button type="button" class="btn btn-secondary" style="padding:10px 16px;font-size:13px;white-space:nowrap" onclick="fetchThumbnail()">썸네일 가져오기</button>
-        </div>
-        <div class="hint">URL 입력 후 버튼을 누르면 썸네일을 자동으로 가져와요</div>
+        <label>📁 이미지 파일 업로드</label>
+        <input type="file" id="pfFile" accept="image/*" onchange="onFileUpload(event)" style="width:100%;padding:10px;border:2px dashed var(--line);border-radius:10px;cursor:pointer;background:var(--bg-soft)">
+        <div class="hint">스크린샷 찍은 이미지 파일을 바로 올리세요</div>
       </div>
 
-      <!-- 썸네일 직접 입력 -->
       <div class="form-group">
-        <label>이미지 URL 직접 입력 (선택)</label>
-        <input type="text" id="pfImgAuto" placeholder="https://...이미지주소.jpg" oninput="onManualImgInput()">
+        <label>사이트 URL (선택)</label>
+        <input type="text" id="pfLink" placeholder="https://example.com" oninput="onLinkInput()">
+        <div class="hint">포트폴리오 카드 클릭 시 이동할 주소</div>
       </div>
 
       <!-- 숨김 필드 (실제 저장값) -->
       <input type="hidden" id="pfImg">
+      <input type="hidden" id="pfImgAuto">
 
       <!-- 썸네일 미리보기 -->
       <div id="thumbPreviewWrap" class="thumb-preview-wrap" style="display:none">
@@ -550,7 +548,7 @@
         <span id="thumbLoadingText">이미지 불러오는 중...</span>
       </div>
       <div id="thumbError" class="thumb-error" style="display:none">
-        😅 썸네일을 가져오지 못했어요. 이미지 URL을 직접 입력하거나 이모지 탭을 이용하세요.
+        😅 이미지를 불러오지 못했어요.
       </div>
     </div>
 
@@ -580,6 +578,8 @@
 </div>
 
 <!-- ======================== JS (로드 순서 중요) ======================== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
 <script src="js/portfolio.js"></script>
 <script src="js/admin.js"></script>
 <script src="js/main.js"></script>
