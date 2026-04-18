@@ -212,35 +212,18 @@ async function fetchThumbnail(){
   if(!/^https?:\/\//i.test(url)) url = 'https://' + url;
   document.getElementById('pfLink').value = url;
 
-  // ── 1단계: allorigins 프록시로 HTML 파싱 → og:image ──
-  showThumbLoading('OG 이미지 확인 중...');
+  showThumbLoading('썸네일 가져오는 중...');
   try {
-    const res = await fetch(
-      `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
-      {signal: AbortSignal.timeout(9000)}
-    );
+    const res = await fetch(`/api/thumbnail?url=${encodeURIComponent(url)}`);
     if(res.ok){
       const data = await res.json();
-      const ogImg = parseOgImage(data.contents || '');
-      if(ogImg){ showThumbPreview(ogImg, '🖼 OG 이미지'); return; }
+      if(data.imgUrl){
+        showThumbPreview(data.imgUrl, data.type === 'og' ? '🖼 OG 이미지' : '📸 스크린샷');
+        return;
+      }
     }
   } catch(e){}
-
-  // ── 2단계: microlink 스크린샷 ──
-  showThumbLoading('스크린샷 생성 중... (최대 15초)');
-  try {
-    const ssUrl = `https://api.microlink.io/screenshot?url=${encodeURIComponent(url)}&viewport.width=1280&viewport.height=720&embed=screenshot.url&ttl=7d`;
-    await new Promise((res, rej)=>{
-      const img = new Image();
-      img.onload = res;
-      img.onerror = rej;
-      img.src = ssUrl;
-      setTimeout(rej, 15000);
-    });
-    showThumbPreview(ssUrl, '📸 스크린샷');
-  } catch(e){
-    showThumbError();
-  }
+  showThumbError();
 }
 
 function parseOgImage(html){
