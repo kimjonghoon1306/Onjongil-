@@ -79,14 +79,21 @@ function parseOgImage(html, baseUrl) {
     const m = html.match(re);
     if (m && m[1]) {
       let img = m[1].trim();
-      // 상대경로 처리
       if (img.startsWith('//')) img = 'https:' + img;
       else if (img.startsWith('/')) {
-        try { img = new URL(img, baseUrl).href; } catch(e) {}
+        // 상대경로 → 원본 사이트 기준으로 절대경로 변환
+        try {
+          const base = new URL(baseUrl);
+          img = base.origin + img;
+        } catch(e) {}
+      } else if (!img.startsWith('http')) {
+        // 상대경로 (http 없는 경우)
+        try {
+          img = new URL(img, baseUrl).href;
+        } catch(e) {}
       }
       if (img.startsWith('http')) return img;
     }
   }
   return null;
 }
-
