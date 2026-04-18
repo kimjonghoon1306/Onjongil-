@@ -1,23 +1,14 @@
 /* ============================================================
-   온종일 · admin.js  — Supabase 연동 비밀번호 관리
+   온종일 · admin.js  — localStorage 비밀번호 관리 (Supabase 제거)
    ============================================================ */
 
-async function getStoredPassword(){
-  const { data, error } = await supabase
-    .from('admin_settings')
-    .select('password_hash')
-    .eq('id', 1)
-    .single();
-  if(error || !data) return '123456';
-  return data.password_hash;
-}
+const DEFAULT_PW = '123456';
 
-async function setStoredPassword(pw){
-  const { error } = await supabase
-    .from('admin_settings')
-    .update({ password_hash: pw, updated_at: new Date().toISOString() })
-    .eq('id', 1);
-  return !error;
+function getStoredPassword(){
+  return localStorage.getItem('onjongil-admin-pw') || DEFAULT_PW;
+}
+function setStoredPassword(pw){
+  localStorage.setItem('onjongil-admin-pw', pw);
 }
 
 const adminToggle = document.getElementById('adminToggle');
@@ -45,9 +36,9 @@ adminToggle.addEventListener('click', ()=>{
   }
 });
 
-async function checkPassword(){
+function checkPassword(){
   const input  = document.getElementById('pwInput').value;
-  const stored = await getStoredPassword();
+  const stored = getStoredPassword();
   if(input === stored){
     document.getElementById('pwModal').classList.remove('active');
     setAdminMode(true);
@@ -69,7 +60,7 @@ pwChangeBtn.addEventListener('click', ()=>{
   document.getElementById('pwChangeModal').classList.add('active');
 });
 
-async function changePassword(){
+function changePassword(){
   const cur   = document.getElementById('pwCurrent').value;
   const nw    = document.getElementById('pwNew').value;
   const cf    = document.getElementById('pwConfirm').value;
@@ -77,8 +68,7 @@ async function changePassword(){
   const okEl  = document.getElementById('pwChangeSuccess');
   okEl.style.display = 'none';
 
-  const stored = await getStoredPassword();
-  if(cur !== stored){
+  if(cur !== getStoredPassword()){
     errEl.textContent = '현재 비밀번호가 일치하지 않습니다.';
     errEl.style.display = 'block'; return;
   }
@@ -90,13 +80,7 @@ async function changePassword(){
     errEl.textContent = '새 비밀번호가 일치하지 않습니다.';
     errEl.style.display = 'block'; return;
   }
-
-  const success = await setStoredPassword(nw);
-  if(!success){
-    errEl.textContent = '비밀번호 변경에 실패했습니다.';
-    errEl.style.display = 'block'; return;
-  }
-
+  setStoredPassword(nw);
   errEl.style.display = 'none';
   okEl.style.display  = 'block';
   setTimeout(()=>{ closePwChangeModal(); }, 1000);
@@ -105,3 +89,14 @@ async function changePassword(){
 function closePwChangeModal(){
   document.getElementById('pwChangeModal').classList.remove('active');
 }
+
+/* 모달 외부 클릭 닫기 */
+document.getElementById('pwModal').addEventListener('click', e=>{
+  if(e.target.id==='pwModal') closePwModal();
+});
+document.getElementById('pwChangeModal').addEventListener('click', e=>{
+  if(e.target.id==='pwChangeModal') closePwChangeModal();
+});
+document.getElementById('pfModal').addEventListener('click', e=>{
+  if(e.target.id==='pfModal') closePfModal();
+});
