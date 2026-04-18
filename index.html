@@ -482,10 +482,14 @@
 <div class="modal-overlay" id="pfModal">
   <div class="modal">
     <h3 id="pfModalTitle">포트폴리오 추가</h3>
+
+    <!-- 제목 -->
     <div class="form-group">
       <label>제목 *</label>
       <input type="text" id="pfTitle" placeholder="예: 영광 굴비가게 쇼핑몰">
     </div>
+
+    <!-- 카테고리 -->
     <div class="form-group">
       <label>카테고리 *</label>
       <select id="pfCategory">
@@ -497,36 +501,77 @@
         <option value="앱">앱</option>
       </select>
     </div>
+
+    <!-- 설명 -->
     <div class="form-group">
       <label>설명 *</label>
       <textarea id="pfDesc" placeholder="프로젝트에 대한 짧은 설명"></textarea>
     </div>
+
+    <!-- 썸네일 탭 -->
     <div class="form-group">
-      <label>이미지 URL (선택)</label>
-      <input type="text" id="pfImg" placeholder="https://... (비우면 이모지 자동 표시)">
-      <div class="hint">💡 이미지 없으면 아래 이모지로 자동 대체돼요</div>
+      <label>썸네일 방식</label>
+      <div class="thumb-tabs">
+        <button type="button" class="thumb-tab active" id="tabAuto" onclick="switchThumbTab('auto')">🔗 URL 자동 추출</button>
+        <button type="button" class="thumb-tab" id="tabEmoji" onclick="switchThumbTab('emoji')">🎨 이모지 + 배경색</button>
+      </div>
     </div>
-    <div class="form-group">
-      <label>대표 이모지 (이미지 없을 때 사용)</label>
-      <input type="text" id="pfEmoji" placeholder="🐟" maxlength="2">
+
+    <!-- 패널 A: URL 자동 추출 -->
+    <div id="panelAuto">
+      <div class="form-group">
+        <label>사이트 URL</label>
+        <div style="display:flex;gap:8px">
+          <input type="text" id="pfLink" placeholder="https://example.com" oninput="onLinkInput()" style="flex:1">
+          <button type="button" class="btn btn-secondary" style="padding:10px 16px;font-size:13px;white-space:nowrap" onclick="fetchThumbnail()">썸네일 가져오기</button>
+        </div>
+        <div class="hint">URL 입력 후 버튼을 누르면 썸네일을 자동으로 가져와요</div>
+      </div>
+
+      <!-- 썸네일 직접 입력 -->
+      <div class="form-group">
+        <label>이미지 URL 직접 입력 (선택)</label>
+        <input type="text" id="pfImgAuto" placeholder="https://...이미지주소.jpg" oninput="onManualImgInput()">
+      </div>
+
+      <!-- 숨김 필드 (실제 저장값) -->
+      <input type="hidden" id="pfImg">
+
+      <!-- 썸네일 미리보기 -->
+      <div id="thumbPreviewWrap" class="thumb-preview-wrap" style="display:none">
+        <div class="thumb-preview-label">
+          <span id="thumbSourceBadge">미리보기</span>
+          <button type="button" class="thumb-reset-btn" onclick="resetThumbnail()">✕ 제거</button>
+        </div>
+        <div class="thumb-preview" id="thumbPreview"></div>
+      </div>
+      <div id="thumbLoading" class="thumb-loading" style="display:none">
+        <div class="thumb-spinner"></div>
+        <span id="thumbLoadingText">이미지 불러오는 중...</span>
+      </div>
+      <div id="thumbError" class="thumb-error" style="display:none">
+        😅 썸네일을 가져오지 못했어요. 이미지 URL을 직접 입력하거나 이모지 탭을 이용하세요.
+      </div>
     </div>
-    <div class="form-group">
-      <label>배경 그라데이션 색상 (이미지 없을 때)</label>
-      <select id="pfBg">
-        <option value="linear-gradient(135deg,#ec4899,#f43f5e)">핑크 그라데이션</option>
-        <option value="linear-gradient(135deg,#3b82f6,#6366f1)">블루 그라데이션</option>
-        <option value="linear-gradient(135deg,#059669,#0f766e)">그린 그라데이션</option>
-        <option value="linear-gradient(135deg,#f59e0b,#f97316)">오렌지 그라데이션</option>
-        <option value="linear-gradient(135deg,#8b5cf6,#6366f1)">퍼플 그라데이션</option>
-        <option value="linear-gradient(135deg,#ef4444,#dc2626)">레드 그라데이션</option>
-        <option value="linear-gradient(135deg,#0ea5e9,#0284c7)">스카이 그라데이션</option>
-        <option value="linear-gradient(135deg,#1a2035,#2a3446)">다크 그라데이션</option>
-      </select>
+
+    <!-- 패널 B: 이모지 + 배경색 -->
+    <div id="panelEmoji" style="display:none">
+      <div class="form-group">
+        <label>사이트 URL (선택)</label>
+        <input type="text" id="pfLinkEmoji" placeholder="https://example.com">
+      </div>
+      <div class="form-group">
+        <label>대표 이모지</label>
+        <input type="text" id="pfEmoji" placeholder="🎨" maxlength="2" style="width:80px;font-size:22px;text-align:center">
+        <div id="emojiGrid" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px"></div>
+      </div>
+      <div class="form-group">
+        <label>배경 색상</label>
+        <input type="hidden" id="pfBg" value="linear-gradient(135deg,#ec4899,#f43f5e)">
+        <div id="bgGrid" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px"></div>
+      </div>
     </div>
-    <div class="form-group">
-      <label>링크 URL (선택)</label>
-      <input type="text" id="pfLink" placeholder="https://...">
-    </div>
+
     <div class="modal-buttons">
       <button class="btn btn-secondary" onclick="closePfModal()">취소</button>
       <button class="btn btn-primary" onclick="savePortfolio()"><span>저장</span></button>
