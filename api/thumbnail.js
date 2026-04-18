@@ -9,8 +9,13 @@ export default async function handler(req, res) {
   let targetUrl = url;
   if (!/^https?:\/\//i.test(targetUrl)) targetUrl = 'https://' + targetUrl;
 
-  // Vercel 스크린샷 API (Vercel에 올라간 사이트는 100% 작동)
-  const screenshotUrl = `https://vercel.com/api/screenshot?url=${encodeURIComponent(targetUrl)}&teamId=&withStatus=1`;
+  try {
+    const apiUrl = `https://api.microlink.io/?url=${encodeURIComponent(targetUrl)}&screenshot=true&meta=false&embed=screenshot.url&ttl=7d`;
+    const response = await fetch(apiUrl, { headers: { 'x-api-key': '' } });
+    const data = await response.json();
+    const imgUrl = data?.data?.screenshot?.url;
+    if (imgUrl) return res.status(200).json({ type: 'screenshot', imgUrl });
+  } catch(e) {}
 
-  return res.status(200).json({ type: 'screenshot', imgUrl: screenshotUrl });
+  return res.status(404).json({ error: '썸네일을 가져올 수 없습니다.' });
 }
