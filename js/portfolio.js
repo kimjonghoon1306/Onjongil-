@@ -73,8 +73,8 @@ function renderPortfolio(){
         <span class="portfolio-category">${p.category}</span>
         ${imgHtml}${emojiFallback}
         <div class="portfolio-admin-buttons">
-          <button class="mini-btn" onclick="editPortfolio(${p.id});event.stopPropagation()" title="수정">✏️</button>
-          <button class="mini-btn delete" onclick="deletePortfolio(${p.id});event.stopPropagation()" title="삭제">✕</button>
+          <button class="mini-btn js-edit" title="수정">✏️</button>
+          <button class="mini-btn delete js-delete" title="삭제">✕</button>
         </div>
       </div>
       <div class="portfolio-info">
@@ -83,6 +83,12 @@ function renderPortfolio(){
         ${p.link ? `<a href="${p.link}" target="_blank" class="portfolio-link" onclick="event.stopPropagation()">자세히 보기 →</a>` : ''}
       </div>
     `;
+    card.querySelector('.js-edit').addEventListener('click', e=>{
+      e.stopPropagation(); editPortfolio(p.id);
+    });
+    card.querySelector('.js-delete').addEventListener('click', e=>{
+      e.stopPropagation(); deletePortfolio(p.id);
+    });
     grid.appendChild(card);
   });
 
@@ -316,12 +322,13 @@ function savePortfolio(){
   }
 
   const item = {img, link, emoji, bg, title, category, desc};
-  if(editingId){
-    const idx = portfolio.findIndex(p=>p.id===editingId);
-    if(idx>=0) portfolio[idx] = {...portfolio[idx], ...item};
+  if(editingId !== null && editingId !== undefined){
+    const idx = portfolio.findIndex(p => p.id == editingId);
+    if(idx >= 0) portfolio[idx] = {...portfolio[idx], ...item};
+    else { alert('수정할 항목을 찾을 수 없어요. 새로고침 후 다시 시도해주세요.'); return; }
   } else {
     if(portfolio.length >= MAX_PORTFOLIO){ alert('등록 한도에 도달했습니다!'); return; }
-    item.id = Math.max(0, ...portfolio.map(p=>p.id)) + 1;
+    item.id = Date.now();
     portfolio.push(item);
   }
   savePortfolioList(portfolio);
@@ -333,13 +340,14 @@ function savePortfolio(){
    수정 / 삭제
    ================================================================ */
 function editPortfolio(id){
-  const p = portfolio.find(x=>x.id===id);
+  const p = portfolio.find(x => x.id == id);
   if(p) openPfModal(p);
+  else alert('항목을 찾을 수 없어요.');
 }
 
 function deletePortfolio(id){
   if(!confirm('정말 삭제할까요?')) return;
-  portfolio = portfolio.filter(x=>x.id!==id);
+  portfolio = portfolio.filter(x => x.id != id);
   savePortfolioList(portfolio);
   renderPortfolio();
 }
