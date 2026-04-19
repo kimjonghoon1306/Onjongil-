@@ -106,5 +106,5 @@ document.getElementById('pwChangeModal').addEventListener('click', e=>{
   if(e.target.id==='pwChangeModal') closePwChangeModal();
 });
 
-// 초기 렌더
-renderPortfolio();
+// ※ renderPortfolio()는 portfolio.js의 DOMContentLoaded 핸들러에서 자동 실행됩니다.
+//    portfolio.js가 ES 모듈이라 여기서 직접 호출 불가능하므로 제거했습니다.
