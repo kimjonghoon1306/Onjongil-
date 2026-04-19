@@ -578,7 +578,8 @@
 </div>
 
 <!-- ======================== JS (로드 순서 중요) ======================== -->
-<script src="js/portfolio.js"></script>
+<!-- portfolio.js는 ES 모듈(firebase import 사용)이므로 반드시 type="module" -->
+<script type="module" src="js/portfolio.js"></script>
 <script src="js/admin.js"></script>
 <script src="js/main.js"></script>
 
