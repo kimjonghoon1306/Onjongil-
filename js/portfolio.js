@@ -40,9 +40,86 @@ const defaultPortfolio = [
   {title:'요가 스튜디오',      category:'홈페이지',  desc:'클래스 예약 + 멤버십 관리 + 결제 통합.',              emoji:'🧘', bg:'linear-gradient(135deg,#34d399,#10b981)', img:'', link:'', order:15},
 ];
 
-let portfolio     = [];
-let editingId     = null;
+let portfolio        = [];
+let editingId        = null;
 let currentThumbMode = 'auto';
+
+/* ================================================================
+   드래그 앤 드롭 순서 변경
+   ================================================================ */
+let dragSrcEl   = null;
+let dragSrcIdx  = null;
+
+function initDragDrop(grid){
+  const cards = [...grid.querySelectorAll('.portfolio-card')];
+
+  cards.forEach((card, idx) => {
+    // 핸들만 드래그 트리거
+    const handle = card.querySelector('.drag-handle');
+    if(!handle) return;
+
+    handle.addEventListener('mousedown',  () => { card.draggable = true;  });
+    handle.addEventListener('mouseleave', () => { if(!dragSrcEl) card.draggable = false; });
+    handle.addEventListener('touchstart', (e) => {
+      card.draggable = true;
+      // 터치 드래그는 별도 처리
+    }, {passive:true});
+
+    card.addEventListener('dragstart', e => {
+      dragSrcEl  = card;
+      dragSrcIdx = idx;
+      e.dataTransfer.effectAllowed = 'move';
+      setTimeout(() => card.classList.add('dragging'), 0);
+    });
+
+    card.addEventListener('dragend', () => {
+      card.draggable = false;
+      card.classList.remove('dragging');
+      grid.querySelectorAll('.portfolio-card').forEach(c => c.classList.remove('drag-over'));
+      dragSrcEl  = null;
+      dragSrcIdx = null;
+    });
+
+    card.addEventListener('dragover', e => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      if(card !== dragSrcEl){
+        grid.querySelectorAll('.portfolio-card').forEach(c => c.classList.remove('drag-over'));
+        card.classList.add('drag-over');
+      }
+    });
+
+    card.addEventListener('dragleave', () => {
+      card.classList.remove('drag-over');
+    });
+
+    card.addEventListener('drop', async e => {
+      e.preventDefault();
+      card.classList.remove('drag-over');
+      if(!dragSrcEl || dragSrcEl === card) return;
+
+      const targetIdx = [...grid.querySelectorAll('.portfolio-card')].indexOf(card);
+      if(targetIdx < 0) return;
+
+      // 배열 순서 재정렬
+      const moved = portfolio.splice(dragSrcIdx, 1)[0];
+      portfolio.splice(targetIdx, 0, moved);
+
+      // order 필드 일괄 업데이트
+      await saveOrder();
+      await renderPortfolio();
+    });
+  });
+}
+
+async function saveOrder(){
+  try {
+    const updates = portfolio.map((p, i) => fsUpdate(p.id, { order: i + 1 }));
+    await Promise.all(updates);
+  } catch(e){
+    alert('순서 저장 실패: ' + e.message);
+  }
+}
 
 /* ================================================================
    Firestore CRUD
@@ -104,6 +181,7 @@ async function renderPortfolio(){
         <span class="portfolio-category">${p.category}</span>
         ${imgHtml}${emojiFallback}
         <div class="portfolio-admin-buttons">
+          <button class="mini-btn drag-handle" title="드래그하여 순서 변경">☰</button>
           <button class="mini-btn js-edit" title="수정">✏️</button>
           <button class="mini-btn delete js-delete" title="삭제">✕</button>
         </div>
@@ -118,6 +196,9 @@ async function renderPortfolio(){
     card.querySelector('.js-delete').addEventListener('click', e=>{ e.stopPropagation(); deletePortfolio(p.id); });
     grid.appendChild(card);
   });
+
+  // 드래그 앤 드롭 초기화 (관리자 모드일 때만 동작)
+  initDragDrop(grid);
 
   const addCard = document.createElement('button');
   const isFull  = portfolio.length >= MAX_PORTFOLIO;
