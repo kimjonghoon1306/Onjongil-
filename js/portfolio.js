@@ -6,7 +6,7 @@ import { db, collection, getDocs, addDoc, updateDoc, deleteDoc, doc, orderBy, qu
 const CLOUDINARY_CLOUD  = 'djzvtfso0';
 const CLOUDINARY_PRESET = 'onjongil';
 const COLLECTION        = 'portfolios';
-const MAX_PORTFOLIO     = 20;
+const MAX_PORTFOLIO     = 100;
 
 const EMOJI_PRESETS = ['🛒','🏠','🚀','🎨','📊','🤖','🐟','☕','🌱','🌸','💪','🍰','🍜','👕','💄','🐶','🏡','📚','🕯️','🧘','💡','⚡','🎯','🔥'];
 const BG_PRESETS = [
@@ -123,7 +123,7 @@ async function renderPortfolio(){
   const isFull  = portfolio.length >= MAX_PORTFOLIO;
   addCard.className = 'portfolio-add-card' + (isFull?' full':'');
   if(isFull){
-    addCard.innerHTML = `<div class="plus">!</div><span>등록 한도(20개)에 도달했습니다</span>`;
+    addCard.innerHTML = `<div class="plus">!</div><span>등록 한도(100개)에 도달했습니다</span>`;
     addCard.onclick   = ()=>alert('기존 항목을 삭제 후 추가해주세요!');
   } else {
     addCard.innerHTML = `<div class="plus">+</div><span>새 포트폴리오 추가</span>`;
@@ -317,7 +317,7 @@ window.savePortfolio = async function(){
     if(editingId){
       await fsUpdate(editingId, item);
     } else {
-      if(portfolio.length>=MAX_PORTFOLIO){ alert('등록 한도(20개)에 도달했습니다!'); return; }
+      if(portfolio.length>=MAX_PORTFOLIO){ alert('등록 한도(100개)에 도달했습니다!'); return; }
       await fsAdd(item);
     }
     closePfModal();
