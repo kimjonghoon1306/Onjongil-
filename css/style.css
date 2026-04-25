@@ -299,3 +299,11 @@ footer p{color:var(--text-dim);font-size:13px}
 .bg-preset-btn:hover{transform:scale(1.1)}
 .bg-preset-btn.active{border-color:var(--text);box-shadow:0 0 0 2px var(--accent)}
 .bg-preset-btn.active::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:900;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+
+/* ================================================================
+   드래그 앤 드롭 순서 변경
+   ================================================================ */
+.drag-handle{cursor:grab;font-size:16px;background:rgba(255,255,255,.95)}
+.drag-handle:active{cursor:grabbing}
+.portfolio-card.dragging{opacity:.4;transform:scale(.97);border:2px dashed var(--accent)}
+.portfolio-card.drag-over{border:2px solid var(--accent);transform:translateY(-6px) scale(1.02);box-shadow:0 16px 48px rgba(0,0,0,.18)}
