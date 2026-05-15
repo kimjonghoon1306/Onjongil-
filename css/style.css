@@ -491,37 +491,30 @@ footer p{color:var(--text-dim);font-size:13px}
 
 /* ── 모바일 최적화 ── */
 @media (max-width: 900px) {
-  .cinematic-wrap {
-    height: auto;
-    min-height: 700px;
-  }
+  .cinematic-wrap { height: auto; min-height: 760px; }
   .cin-scene {
     flex-direction: column;
-    gap: 28px;
-    padding: 70px 6% 90px;
+    gap: 24px;
+    padding: 72px 5% 85px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
-  .cin-visual {
-    width: min(85%, 400px);
-    flex: 0 0 auto;
-  }
-  .cin-text {
-    text-align: center;
-    width: 100%;
-  }
+  .cin-visual { width: min(88%, 420px); flex: 0 0 auto; }
+  .cin-text { text-align: center; width: 100%; padding: 0 4px; }
   .cin-sub { margin: 0 auto; }
   .cin-arrow { display: none; }
-  .cin-title { font-size: clamp(22px, 5.5vw, 34px); letter-spacing: -1px; }
-  .cin-sub { font-size: 14px; }
-  .cin-label { font-size: 12px; letter-spacing: 3px; }
+  .cin-label { font-size: 13px; letter-spacing: 3px; opacity: 1; color: var(--accent); }
+  .cin-title { font-size: clamp(24px, 6vw, 36px); letter-spacing: -1px; color: #ffffff; text-shadow: 0 2px 12px rgba(0,0,0,0.8); margin-bottom: 14px; }
+  .cin-sub { font-size: 15px; line-height: 1.75; color: #c8d0e0; font-weight: 500; text-shadow: 0 1px 8px rgba(0,0,0,0.9); }
 }
 @media (max-width: 480px) {
-  .cinematic-wrap { min-height: 640px; }
-  .cin-bar { height: 40px; }
-  .cin-progress { bottom: 40px; }
-  .cin-dots { bottom: 12px; }
-  .cin-scene { padding: 55px 5% 75px; gap: 20px; }
-  .cin-visual { width: min(90%, 340px); }
-  .cin-title { font-size: clamp(20px, 6vw, 28px); }
+  .cinematic-wrap { min-height: 700px; }
+  .cin-bar { height: 36px; }
+  .cin-progress { bottom: 36px; }
+  .cin-dots { bottom: 10px; }
+  .cin-scene { padding: 52px 5% 70px; gap: 20px; }
+  .cin-visual { width: min(92%, 340px); }
+  .cin-title { font-size: clamp(22px, 6.5vw, 30px); color: #ffffff; }
+  .cin-sub { font-size: 15px; color: #cdd4e2; font-weight: 500; }
+  .cin-label { font-size: 12px; opacity: 1; }
 }
