@@ -144,9 +144,8 @@ section{padding:120px 40px;position:relative}
 /* 모달 카테고리 칩(다중 선택) */
 .cat-hint{font-weight:400;opacity:.6;font-size:12px}
 .cat-select{display:flex;flex-wrap:wrap;gap:8px}
-.cat-chip{display:inline-flex;align-items:center;cursor:pointer;user-select:none;padding:8px 14px;border-radius:100px;border:1.5px solid currentColor;font-size:13px;font-weight:600;opacity:.5;line-height:1;transition:.15s}
+.cat-chip{display:inline-flex;align-items:center;cursor:pointer;user-select:none;padding:8px 14px;border-radius:100px;border:1.5px solid currentColor;font-family:inherit;font-size:13px;font-weight:600;color:inherit;background:transparent;opacity:.5;line-height:1;transition:.15s}
 .cat-chip:hover{opacity:.85}
-.cat-chip input{display:none}
 .cat-chip.on{opacity:1;color:#fff;border-color:transparent;background:linear-gradient(135deg,#f59e0b,#f97316)}
 .portfolio-info{padding:20px 22px}
 .portfolio-info h3{font-size:17px;font-weight:800;margin-bottom:6px}

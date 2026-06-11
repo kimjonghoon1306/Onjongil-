@@ -41,14 +41,14 @@ function renderCategoryChips(selected=[]){
   if(!box) return;
   const all = [...CATEGORIES, ...selected.filter(c=>!CATEGORIES.includes(c))]; // 과거 커스텀값도 표시
   box.innerHTML = all.map(c=>
-    `<label class="cat-chip${selected.includes(c)?' on':''}"><input type="checkbox" value="${c}"${selected.includes(c)?' checked':''}>${c}</label>`
+    `<button type="button" class="cat-chip${selected.includes(c)?' on':''}" data-cat="${c}">${c}</button>`
   ).join('');
-  box.querySelectorAll('.cat-chip input').forEach(inp=>{
-    inp.addEventListener('change', e=> e.target.closest('.cat-chip').classList.toggle('on', e.target.checked));
+  box.querySelectorAll('.cat-chip').forEach(btn=>{
+    btn.addEventListener('click', ()=> btn.classList.toggle('on'));  // 누를 때마다 선택/해제 토글
   });
 }
 function getSelectedCategories(){
-  return [...document.querySelectorAll('#pfCategoryBox input:checked')].map(i=>i.value);
+  return [...document.querySelectorAll('#pfCategoryBox .cat-chip.on')].map(b=>b.dataset.cat);
 }
 
 const defaultPortfolio = [
