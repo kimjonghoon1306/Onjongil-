@@ -22,6 +22,35 @@ const BG_PRESETS = [
   {label:'로즈',  val:'linear-gradient(135deg,#f472b6,#ec4899)'},
 ];
 
+/* 카테고리 목록 (다중 선택 가능) — 여기 배열만 고치면 칩이 자동 갱신됨 */
+const CATEGORIES = [
+  '홈페이지','쇼핑몰','랜딩페이지','상세페이지',
+  '방판전산','회원관리전산','도매전산','관리프로그램',
+  '예약시스템','키오스크·POS','앱','마케팅',
+];
+
+/* 데이터 → 카테고리 배열 (구버전 단일 문자열 / 콤마결합 모두 호환) */
+function parseCategories(p){
+  if(Array.isArray(p?.categories)) return p.categories.filter(Boolean);
+  if(p?.category) return String(p.category).split(/[,，]/).map(s=>s.trim()).filter(Boolean);
+  return [];
+}
+/* 모달에 칩 렌더 (선택된 것 on) */
+function renderCategoryChips(selected=[]){
+  const box = document.getElementById('pfCategoryBox');
+  if(!box) return;
+  const all = [...CATEGORIES, ...selected.filter(c=>!CATEGORIES.includes(c))]; // 과거 커스텀값도 표시
+  box.innerHTML = all.map(c=>
+    `<label class="cat-chip${selected.includes(c)?' on':''}"><input type="checkbox" value="${c}"${selected.includes(c)?' checked':''}>${c}</label>`
+  ).join('');
+  box.querySelectorAll('.cat-chip input').forEach(inp=>{
+    inp.addEventListener('change', e=> e.target.closest('.cat-chip').classList.toggle('on', e.target.checked));
+  });
+}
+function getSelectedCategories(){
+  return [...document.querySelectorAll('#pfCategoryBox input:checked')].map(i=>i.value);
+}
+
 const defaultPortfolio = [
   {title:'영광 굴비가게',      category:'쇼핑몰',    desc:'전통 수산물 도매 쇼핑몰. AI 상세페이지 생성 기능 탑재.',  emoji:'🐟', bg:'linear-gradient(135deg,#0ea5e9,#0284c7)', img:'', link:'', order:1},
   {title:'소담 카페 브랜딩',   category:'홈페이지',  desc:'감성 카페 브랜드 홈페이지 + 온라인 예약 시스템.',        emoji:'☕', bg:'linear-gradient(135deg,#8b5cf6,#6366f1)', img:'', link:'', order:2},
@@ -178,7 +207,7 @@ async function renderPortfolio(){
     const emojiFallback = `<div style="${p.img?'display:none':'display:flex'};font-size:64px;align-items:center;justify-content:center;width:100%;height:100%;position:absolute;inset:0">${p.emoji||'🎨'}</div>`;
     card.innerHTML = `
       <div class="portfolio-img" style="background:${p.bg||'linear-gradient(135deg,#ffd27a,#ff8a5c)'}">
-        <span class="portfolio-category">${p.category}</span>
+        <div class="portfolio-cats">${parseCategories(p).map(c=>`<span class="portfolio-category">${c}</span>`).join('')}</div>
         ${imgHtml}${emojiFallback}
         <div class="portfolio-admin-buttons">
           <button class="mini-btn drag-handle" title="드래그하여 순서 변경">☰</button>
@@ -220,7 +249,7 @@ function openPfModal(editData=null){
   editingId = editData ? editData.id : null;
   document.getElementById('pfModalTitle').textContent = editData ? '포트폴리오 수정' : '포트폴리오 추가';
   document.getElementById('pfTitle').value    = editData?.title    || '';
-  document.getElementById('pfCategory').value = editData?.category || '쇼핑몰';
+  renderCategoryChips(parseCategories(editData));
   document.getElementById('pfDesc').value     = editData?.desc     || '';
 
   switchThumbTab(editData?.img ? 'auto' : 'emoji');
@@ -368,9 +397,10 @@ function syncBgGrid(activeIdx){
    ================================================================ */
 window.savePortfolio = async function(){
   const title    = document.getElementById('pfTitle').value.trim();
-  const category = document.getElementById('pfCategory').value;
+  const cats     = getSelectedCategories();
   const desc     = document.getElementById('pfDesc').value.trim();
   if(!title||!desc){ alert('제목과 설명은 필수입니다!'); return; }
+  if(cats.length===0){ alert('카테고리를 1개 이상 선택해주세요!'); return; }
 
   const loadingEl = document.getElementById('thumbLoading');
   if(loadingEl && loadingEl.style.display!=='none'){
@@ -392,7 +422,7 @@ window.savePortfolio = async function(){
     img   = '';
   }
 
-  const item = { title, category, desc, img, link, emoji, bg };
+  const item = { title, category: cats.join(', '), categories: cats, desc, img, link, emoji, bg };
 
   try {
     if(editingId){

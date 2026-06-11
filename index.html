@@ -881,17 +881,10 @@
       <input type="text" id="pfTitle" placeholder="예: 영광 굴비가게 쇼핑몰">
     </div>
 
-    <!-- 카테고리 -->
+    <!-- 카테고리 (다중 선택) -->
     <div class="form-group">
-      <label>카테고리 *</label>
-      <select id="pfCategory">
-        <option value="쇼핑몰">쇼핑몰</option>
-        <option value="홈페이지">홈페이지</option>
-        <option value="랜딩페이지">랜딩페이지</option>
-        <option value="도매전산">도매전산</option>
-        <option value="디자인">디자인</option>
-        <option value="앱">앱</option>
-      </select>
+      <label>카테고리 * <span class="cat-hint">여러 개 선택 가능 (예: 방판전산 + 홈페이지)</span></label>
+      <div class="cat-select" id="pfCategoryBox"></div>
     </div>
 
     <!-- 설명 -->
