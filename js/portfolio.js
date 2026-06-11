@@ -43,9 +43,14 @@ function renderCategoryChips(selected=[]){
   box.innerHTML = all.map(c=>
     `<button type="button" class="cat-chip${selected.includes(c)?' on':''}" data-cat="${c}">${c}</button>`
   ).join('');
-  box.querySelectorAll('.cat-chip').forEach(btn=>{
-    btn.addEventListener('click', ()=> btn.classList.toggle('on'));  // 누를 때마다 선택/해제 토글
-  });
+  // 위임 핸들러를 박스에 1번만 바인딩 (중복 바인딩/스택 방지)
+  if(!box.dataset.bound){
+    box.addEventListener('click', e=>{
+      const chip = e.target.closest('.cat-chip');
+      if(chip){ e.preventDefault(); chip.classList.toggle('on'); }
+    });
+    box.dataset.bound = '1';
+  }
 }
 function getSelectedCategories(){
   return [...document.querySelectorAll('#pfCategoryBox .cat-chip.on')].map(b=>b.dataset.cat);
@@ -247,7 +252,7 @@ async function renderPortfolio(){
    ================================================================ */
 function openPfModal(editData=null){
   editingId = editData ? editData.id : null;
-  document.getElementById('pfModalTitle').textContent = editData ? '포트폴리오 수정' : '포트폴리오 추가';
+  document.getElementById('pfModalTitle').textContent = (editData ? '포트폴리오 수정' : '포트폴리오 추가') + ' ✅v2';
   document.getElementById('pfTitle').value    = editData?.title    || '';
   renderCategoryChips(parseCategories(editData));
   document.getElementById('pfDesc').value     = editData?.desc     || '';
