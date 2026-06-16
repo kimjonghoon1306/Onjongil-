@@ -530,14 +530,13 @@ footer p{color:var(--text-dim);font-size:13px}
 }
 
 /* ── 포트폴리오 대표 영상 쇼케이스 ── */
-.pf-showcase{position:relative;border-radius:24px;overflow:hidden;margin-bottom:28px;
-  aspect-ratio:16/9;max-height:480px;border:1px solid var(--border,rgba(0,0,0,0.08));
+.pf-showcase{position:relative;border-radius:24px;overflow:hidden;margin-bottom:18px;
+  aspect-ratio:16/9;width:100%;border:1px solid var(--border,rgba(0,0,0,0.08));
   box-shadow:0 30px 70px -30px rgba(0,0,0,0.45);background:#000}
 .pf-showcase video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.pf-showcase::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(0,0,0,0.78) 0%,rgba(0,0,0,0.15) 45%,transparent 70%)}
-.pf-showcase-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:clamp(20px,4vw,40px)}
+/* 캡션은 영상 아래 (영상 안 가림) */
+.pf-showcase-cap{text-align:center;margin-bottom:36px}
 .pf-showcase-eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--accent);margin-bottom:8px}
-.pf-showcase-title{font-size:clamp(22px,4vw,38px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:6px}
-.pf-showcase-sub{font-size:clamp(13px,2vw,16px);color:rgba(255,255,255,0.85);font-weight:500}
-@media(max-width:640px){.pf-showcase{aspect-ratio:4/5}}
+.pf-showcase-title{font-size:clamp(20px,3.4vw,32px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:6px}
+.pf-showcase-sub{font-size:clamp(13px,2vw,16px);color:var(--text-muted);font-weight:500}
+@media(max-width:640px){.pf-showcase{aspect-ratio:16/10}}
