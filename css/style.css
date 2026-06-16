@@ -408,7 +408,9 @@ footer p{color:var(--text-dim);font-size:13px}
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: -2px;
-  color: var(--text);
+  /* 시네마틱은 항상 어두운 배경 → 테마 무관 밝은 색 고정 */
+  color: #f5f3ee;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6);
   margin-bottom: 20px;
 }
 .cin-title em {
@@ -419,7 +421,8 @@ footer p{color:var(--text-dim);font-size:13px}
 }
 .cin-sub {
   font-size: clamp(14px, 1.4vw, 17px);
-  color: var(--text-muted);
+  color: #cdd4e2;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.6);
   line-height: 1.8;
   max-width: 440px;
 }
