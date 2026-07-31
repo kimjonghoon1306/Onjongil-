@@ -540,3 +540,16 @@ footer p{color:var(--text-dim);font-size:13px}
 .pf-showcase-title{font-size:clamp(20px,3.4vw,32px);font-weight:900;color:var(--text);line-height:1.2;margin-bottom:6px}
 .pf-showcase-sub{font-size:clamp(13px,2vw,16px);color:var(--text-muted);font-weight:500}
 @media(max-width:640px){.pf-showcase{aspect-ratio:16/10}}
+
+/* 대표영상 소리 버튼 (작게, 화면 가림 최소화) */
+.pf-sound{position:absolute;right:10px;bottom:10px;display:inline-flex;align-items:center;gap:4px;padding:6px 11px;font-size:12.5px;font-weight:700;border-radius:999px;border:none;cursor:pointer;color:#0a0e1a;background:rgba(255,210,122,.92);box-shadow:0 4px 12px -4px rgba(255,138,92,.5);opacity:.94;transition:transform .12s,filter .15s;-webkit-tap-highlight-color:transparent;z-index:3}
+.pf-sound:hover{filter:brightness(1.06);opacity:1}
+.pf-sound:active{transform:scale(.92)}
+@media(max-width:640px){.pf-sound{right:8px;bottom:8px;padding:5px 9px;font-size:11px}}
+
+/* PWA 업데이트 배너 */
+.op-update-bar{position:fixed;left:0;right:0;bottom:0;z-index:1000;display:none;align-items:center;gap:12px;max-width:480px;margin:0 auto;padding:12px 16px;background:linear-gradient(135deg,#ffd27a,#ff8a5c);color:#0a0e1a;box-shadow:0 -6px 20px rgba(0,0,0,.3);font-family:Pretendard,sans-serif}
+.op-update-bar.show{display:flex}
+.op-update-bar b{font-size:15px;font-weight:800}
+.op-update-bar small{font-size:12px;opacity:.85}
+.op-update-bar button{flex:0 0 auto;background:#0a0e1a;color:#ffd27a;border:none;border-radius:999px;padding:10px 20px;font-weight:900;font-size:15px;cursor:pointer}
