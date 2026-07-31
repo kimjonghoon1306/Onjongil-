@@ -553,3 +553,9 @@ footer p{color:var(--text-dim);font-size:13px}
 .op-update-bar b{font-size:15px;font-weight:800}
 .op-update-bar small{font-size:12px;opacity:.85}
 .op-update-bar button{flex:0 0 auto;background:#0a0e1a;color:#ffd27a;border:none;border-radius:999px;padding:10px 20px;font-weight:900;font-size:15px;cursor:pointer}
+
+/* 최상단 브랜드 필름 배너 */
+.brandfilm-top{padding:92px 20px 8px;background:var(--sky);position:relative;z-index:2}
+.brandfilm-inner{max-width:900px;margin:0 auto}
+.brandfilm-top .pf-showcase-cap{margin-top:14px}
+@media(max-width:640px){.brandfilm-top{padding:80px 14px 6px}}
